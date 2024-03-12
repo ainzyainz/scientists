@@ -18,19 +18,20 @@ public class RobotMakerUtils {
     private RobotMakerUtils() {
     }
 
-    private static void makeRobot(Set<RobotPart> tempRobot, Scientist scientist){
-        if (tempRobot.size() == COUNT_OF_ROBOT_PART) {
-            scientist.setCountOfRobots(scientist.getCountOfRobots() + 1);
-            LOGGER.log(Level.INFO, checkingMessage(scientist.getMessage(), scientist.getName(), scientist.getCountOfRobots()));
-            tempRobot.clear();
-        }
-    }
     public static void checking(List<RobotPart> storage, Set<RobotPart> tempRobot, Scientist scientist) {
         for (int i = 0; i < storage.size() - 1; i++) {
             if (!tempRobot.contains(storage.get(i))) {
                 tempRobot.add(storage.remove(i));
             }
             makeRobot(tempRobot, scientist);
+        }
+    }
+
+    private static void makeRobot(Set<RobotPart> tempRobot, Scientist scientist){
+        if (tempRobot.size() == COUNT_OF_ROBOT_PART) {
+            scientist.setCountOfRobots(scientist.getCountOfRobots() + 1);
+            LOGGER.log(Level.INFO, checkingMessage(scientist.getMessage(), scientist.getName(), scientist.getCountOfRobots()));
+            tempRobot.clear();
         }
     }
 }
