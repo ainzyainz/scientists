@@ -1,5 +1,4 @@
-import models.Dump;
-import models.Scientist;
+import models.*;
 import robot.RobotPart;
 import utils.ResultUtils;
 
