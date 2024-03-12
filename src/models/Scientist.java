@@ -2,6 +2,7 @@ package models;
 
 import robot.RobotPart;
 import utils.RobotMakerUtils;
+import utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -46,13 +47,8 @@ public class Scientist implements Runnable {
                 }
                 RobotMakerUtils.checking(storage, tempRobot, this);
             }
-            try {
-                Thread.sleep(DELAY_FOR_THROW_DETAILS);
-            } catch (IllegalArgumentException | InterruptedException e) {
-                e.printStackTrace();
-            }
+            Utils.delay();
         }
-        Thread.currentThread().interrupt();
         LOGGER.log(Level.INFO, getFinalCountOfCreatedRobots(message, name, countOfRobots));
     }
 

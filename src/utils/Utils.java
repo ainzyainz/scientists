@@ -2,11 +2,21 @@ package utils;
 
 import robot.RobotPart;
 
+import static utils.Constant.DELAY_FOR_THROW_DETAILS;
+
 public class Utils {
 
     public static boolean FLAG = false;
 
     private Utils() {
+    }
+
+    public static void delay(){
+        try {
+            Thread.sleep(DELAY_FOR_THROW_DETAILS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static String  getNightNumber(int start) {

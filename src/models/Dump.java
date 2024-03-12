@@ -1,6 +1,7 @@
 package models;
 
 import robot.RobotPart;
+import utils.Utils;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;
@@ -30,18 +31,10 @@ public class Dump implements Runnable {
             for (int l = 0; l < randomValue; l++) {
                 throwRobotParts();
             }
-            try {
-                Thread.sleep(DELAY_FOR_THROW_DETAILS);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            Utils.delay();
         }
 
-        try {
-            Thread.sleep(DELAY_FOR_THROW_DETAILS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Utils.delay();
 
         finishing();
     }
@@ -49,7 +42,6 @@ public class Dump implements Runnable {
     private void finishing() {
         LOGGER.log(Level.INFO, FINISH_MESSAGE);
         FLAG = true;
-        Thread.currentThread().interrupt();
     }
 
     private void throwRobotParts() {
