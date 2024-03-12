@@ -3,7 +3,6 @@ package utils;
 import models.Scientist;
 import robot.RobotPart;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
@@ -16,9 +15,12 @@ public class RobotMakerUtils {
 
     private static final Logger LOGGER = Logger.getLogger(RobotMakerUtils.class.getName());
 
+    private RobotMakerUtils() {
+    }
+
     public static void makeRobot(Set<RobotPart> tempRobot, Scientist scientist){
         if (tempRobot.size() == COUNT_OF_ROBOT_PART) {
-            scientist.setCountOfRobots(scientist.getCountOfRobots()+1);
+            scientist.setCountOfRobots(scientist.getCountOfRobots() + 1);
             LOGGER.log(Level.INFO, checkingMessage(scientist.getMessage(), scientist.getName(), scientist.getCountOfRobots()));
             tempRobot.clear();
         }
@@ -28,7 +30,7 @@ public class RobotMakerUtils {
             if (!tempRobot.contains(storage.get(i))) {
                 tempRobot.add(storage.remove(i));
             }
-            makeRobot(tempRobot,scientist);
+            makeRobot(tempRobot, scientist);
         }
     }
 }

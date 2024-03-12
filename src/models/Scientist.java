@@ -18,15 +18,11 @@ import static utils.Utils.*;
 public class Scientist implements Runnable {
 
     private static final Logger LOGGER = Logger.getLogger(Scientist.class.getName());
+
     private final List<RobotPart> storage = new ArrayList<>();
     private final BlockingQueue<RobotPart> dump;
     private final String name;
     private final String message;
-
-
-    public List<RobotPart> getStorage() {
-        return storage;
-    }
 
     private int countOfRobots = START_COUNT_OF_ROBOTS;
     private final Set<RobotPart> tempRobot = new HashSet<>();
@@ -48,7 +44,7 @@ public class Scientist implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                RobotMakerUtils.checking(storage,tempRobot,this);
+                RobotMakerUtils.checking(storage, tempRobot, this);
             }
             try {
                 Thread.sleep(DELAY_FOR_THROW_DETAILS);
@@ -65,16 +61,16 @@ public class Scientist implements Runnable {
     }
 
     public void removing() throws InterruptedException {
-        if (dump.size() == 0) {
+        if (dump.isEmpty()) {
             return;
         }
         RobotPart temp = dump.poll(DELAY_FOR_THROW_DETAILS, TimeUnit.MILLISECONDS);
         if (temp != null) {
             storage.add(temp);
             LOGGER.log(Level.INFO, getRobotPart(name, temp));
-            dump.remove(temp);
         }
     }
+
     public int getCountOfRobots() {
         return countOfRobots;
     }

@@ -13,6 +13,8 @@ public class ResultUtils {
 
     private static final Logger LOGGER = Logger.getLogger(ResultUtils.class.getName());
 
+    private ResultUtils() {
+    }
 
     public static void getResults(Scientist sc1, Scientist sc2) {
         if (sc1.getCountOfRobots() < sc2.getCountOfRobots()) {

@@ -38,7 +38,7 @@ public class Dump implements Runnable {
         }
 
         try {
-            Thread.sleep(DELAY_FOR_THROW_DETAILS);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
