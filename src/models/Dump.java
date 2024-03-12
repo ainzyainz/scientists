@@ -33,9 +33,6 @@ public class Dump implements Runnable {
             }
             Utils.delay();
         }
-
-        Utils.delay();
-
         finishing();
     }
 
