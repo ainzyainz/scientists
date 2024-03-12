@@ -18,7 +18,7 @@ public class RobotMakerUtils {
     private RobotMakerUtils() {
     }
 
-    private static void makeRobot(Set<RobotPart> tempRobot, Scientist scientist){
+    public static void makeRobot(Set<RobotPart> tempRobot, Scientist scientist){
         if (tempRobot.size() == COUNT_OF_ROBOT_PART) {
             scientist.setCountOfRobots(scientist.getCountOfRobots() + 1);
             LOGGER.log(Level.INFO, checkingMessage(scientist.getMessage(), scientist.getName(), scientist.getCountOfRobots()));

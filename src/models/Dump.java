@@ -16,7 +16,7 @@ public class Dump implements Runnable {
 
     public Dump(BlockingQueue<RobotPart> dump) {
         this.dump = dump;
-        initiateRobotParts();
+        throwRobotParts(START_COUNT_OF_ROBOTS_IN_DUMP);
     }
 
     @Override
@@ -25,7 +25,8 @@ public class Dump implements Runnable {
         while (start != COUNT_OF_NIGHT) {
             start++;
             LOGGER.log(Level.INFO, getNightNumber(start));
-            throwRobotParts();
+            int randomValue = RANDOM.nextInt(MAX_NUMBER_OF_THROWS_ROBOT_PART) + 1;
+            throwRobotParts(randomValue);
             Utils.delay();
         }
         finishing();
@@ -35,15 +36,9 @@ public class Dump implements Runnable {
         LOGGER.log(Level.INFO, FINISH_MESSAGE);
         FLAG = true;
     }
-    private void initiateRobotParts(){
-        for (int i = 0; i < START_COUNT_OF_ROBOTS_IN_DUMP; i++) {
-            dump.add(RobotPart.values()[RANDOM.nextInt((RobotPart.values().length))]);
-        }
-    }
 
-    private void throwRobotParts() {
-        int randomValue = RANDOM.nextInt(MAX_NUMBER_OF_THROWS_ROBOT_PART)+1;
-        for (int l = 0; l < randomValue; l++) {
+    private void throwRobotParts(int counter) {
+        for (int l = 0; l < counter; l++) {
             dump.add(RobotPart.values()[RANDOM.nextInt((RobotPart.values().length))]);
         }
     }
