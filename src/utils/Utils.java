@@ -11,7 +11,7 @@ public class Utils {
     private Utils() {
     }
 
-    public static void delay(){
+    public static void delay() {
         try {
             Thread.sleep(DELAY_FOR_THROW_DETAILS);
         } catch (InterruptedException e) {
@@ -19,8 +19,8 @@ public class Utils {
         }
     }
 
-    public static String  getNightNumber(int start) {
-   return String.format("%s%s%d%s%s%s", (char) 27,  "[34mNight ", start, " started", (char) 27, "[0m");
+    public static String getNightNumber(int start) {
+        return String.format("%s%s%d%s%s%s", (char) 27, "[34mNight ", start, " started", (char) 27, "[0m");
     }
 
     public static String getFinalCountOfCreatedRobots(String message, String name, int countOfRobot) {
@@ -38,14 +38,14 @@ public class Utils {
     }
 
     public static String resultOfCompetition(String name, int countOfRobot) {
-        return String.format("%s%s%s%s%d%s%s%s", (char) 27, "[33m", name , " won with ", countOfRobot, " robots",
+        return String.format("%s%s%s%s%d%s%s%s", (char) 27, "[33m", name, " won with ", countOfRobot, " robots",
                 (char) 27, "[0m"
-                );
+        );
     }
 
     public static String tieResultOfCompetition(int countOfRobot) {
-        return  String.format("%s%s%d%s%s%s",(char) 27, "[31mIt's a tie! Nobody won with ", countOfRobot, " robots",
+        return String.format("%s%s%d%s%s%s", (char) 27, "[31mIt's a tie! Nobody won with ", countOfRobot, " robots",
                 (char) 27, "[0m"
-                );
+        );
     }
 }
